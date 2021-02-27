@@ -1,0 +1,26 @@
+{
+  "name": "push-notifications-server",
+  "description": "",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "open-client:macos": "open http://127.0.0.1:3000",
+    "open-client:windows": "start http://127.0.0.1:3000",
+    "open-client:linux": "xdg-open http://127.0.0.1:3000",
+    "init": "npm-run-all generate-env generate-vapid-keys && echo \"\\033[32mPlease copy public and private keys into .env file\n\"",
+    "generate-env": "echo 'PORT=3000\nPUBLIC_VAPID_KEY=<your public key>\nPRIVATE_VAPID_KEY=<your private key>' > .env",
+    "generate-vapid-keys": "web-push generate-vapid-keys"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "json-colorizer": "^2.2.2",
+    "web-push": "^3.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5"
+  }
+}

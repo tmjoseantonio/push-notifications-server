@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESKTOP NOTIFICATIONS EXAMPLE</title>
+    <style>
+        .main.hidden {
+            display: none;
+        }
+
+        .not-supported {
+            display: none;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px;
+            background-color: rgb(255, 255, 214);
+            border: 1px solid #333;
+        }
+
+        .not-supported.visible {
+            display: block;
+        }
+
+        .notification-form {
+            padding: 20px 0;
+        }
+
+        .notification-form input{
+            display: block;
+        }
+
+        .notification-form--label {
+            font-size: 17px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .trigger-subscription,
+        .trigger-notification {
+            appearance: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 19px;
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <aside class="not-supported">⚠️ Either <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" targer="_blank">Service Worker API</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushManager" target="_blank">PushManager API</a> are not supported on this browser.</aside>
+    <main class="main">
+        <h1>Subscription flow:</h1>
+        <h2>Subscribe client:</h2>
+        <button class="trigger-subscription">Subscribe</button>
+
+        <h2>Notify clients:</h2>
+        <form class="notification-form">
+            <label class="notification-form--label">Title <input type="text" name="title"></label>
+            <label class="notification-form--label">Body <input type="text" name="body"></label>
+            <label class="notification-form--label">Thumbnail (optional) <input type="text" name="icon"></label>
+            <label class="notification-form--label">Destination URL (optional)<input type="text" name="url"></label>
+            <label class="notification-form--label">Tag<input type="text" name="tag"></label>
+            <button class="notification-form--button trigger-notification">Notify</button>
+        </form>
+    </main>
+    <script src="/client.js"></script>
+</body>
+</html>
