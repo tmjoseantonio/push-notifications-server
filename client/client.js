@@ -6,7 +6,7 @@ const SUBSCRIPTION_ENDPOINT = 'http://127.0.0.1:3000/subscribe';
 const PUSH_NOTIFICATION_ENDPOINT = 'http://127.0.0.1:3000/notify';
 
 // Set VAPID_KEY value from server's public vapid key (.env)
-const VAPID_KEY = 'BFSuMyMVmPTFK-iibzK2yXuLrELDxdhx_g5Hl6dJUsDqwG6uCLznRv-SEkyy6QcoIAJrOA2wHWLOFPnyLf9wlfE';
+const VAPID_KEY = '<public vapid key>';
 
 const selectors = {
 	subscribeBtn: '.trigger-subscription',
