@@ -6,8 +6,9 @@ This server will create mock services that will allow you to test Push Notificat
   1. `npm run install`: Setup project dependencies
   2. `npm run init`: Create VAPID keys and base `.env` file.
   3. Copy the private and public keys into the generated `.env` file. (Do not hardcode or share these credentials).
-  4. Start the server with `npm run start`
-  5. Open local server with `npm run open-client:[your os]` available options are (macos, linux, windows. You can also open the following url `http://127.0.0.1:3000`.
+  4. Copy public key to `client/client.js` in the constant `VAPID_KEY`
+  5. Start the server with `npm run start`
+  6. Open local server with `npm run open-client:[your os]` available options are (macos, linux, windows. You can also open the following url `http://127.0.0.1:3000`.
 
 ## API Endpoints
 
@@ -40,18 +41,21 @@ Payload object is built by the browser upon user consent:
   "tag": "officia-ea-nulla-esse"
 }
 ```
+
+### /
+Serves client html
+
 Push custom notification to all registered clients.
 
-## Client setup
+## Notifications overview
 
-[Client server](https://github.com)
-
+  1. Ask for consent flow:
 ![Notifications consent flow](https://developers.google.com/web/fundamentals/push-notifications/images/svgs/browser-to-server.svg)
+A service worker will be setup in the client upon user consent.
 
-A service worker needs to be setup on the client to listen for notification badge push / click / dismiss events. 
-
+  2. Display notification flow:
 ![Handling pushed notifications](https://developers.google.com/web/fundamentals/push-notifications/images/svgs/push-service-to-sw-event.svg)
-
+Notification badge dismissal, click, and decision making take place on the service worker script.
 
 ## Reference
 Google Developers: Web Fundamentals - [Web Push Notifications: Timely, Relevant, and Precise](https://developers.google.com/web/fundamentals/push-notifications)
